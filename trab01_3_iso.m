@@ -50,7 +50,7 @@ linearidade = max_err/span*100
 % Histerese:
 % Maior diferença entre valores de subida
 % e descida para uma mesma entrada.
-histerese = max(abs(up-down))
-% histerese =  0.38686
+histerese = max(abs(up-down))/span*100
+% histerese =  6.1000
 
 pause
