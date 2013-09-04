@@ -22,18 +22,35 @@ p = polyfit(real, middle, 1)
 % 1.08232  -0.84705
 d = polyval(p, real)
 % -0.84705   0.23527   1.31759   2.39991   3.48223   4.56455   5.64686   6.72918   7.81150   8.89382   9.97614
-plot(real, d, real, middle, 'x')
+plot(real, real, real, middle, 'x', real, d)
 title('Reta de calibração')
 xlabel('Pressão real')
 ylabel('Pressão calibrada')
-legend('-0.84705+1.08232x', 'Média indicada')
+legend('Real', 'Média indicada', '-0.84705+1.08232x')
 
-sensibilidade = p(1)-1
-% sensibilidade = 0.082318
+% Sensibilidade:
+% Inclinação da curva de calibração.
+sensibilidade = p(1)
+% sensibilidade = 1.082318
+
+% Offset:
+% Deslocamento de zero
 offset = p(2)
-% offset = -0.84705
-linearidade = 0
-histerese = max(max(abs(up-d),max(abs(down-d))))
+% offset = -0.84705 
+
+% Linearidade (%):
+% Percentual de não linearidade relativa.
+span = max(real) - min(real)
+max_up_err = max(abs(up - d))
+max_down_err = max(abs(down- d))
+max_err = max(max_up_err, max_down_err) 
+linearidade = max_err/span*100
+% linearidade = 3.8686 %
+
+% Histerese:
+% Maior diferença entre valores de subida
+% e descida para uma mesma entrada.
+histerese = max(abs(up-down))
 % histerese =  0.38686
 
 pause
