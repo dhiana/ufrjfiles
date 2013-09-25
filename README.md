@@ -1,4 +1,7 @@
-Arquivos de algumas disciplinas do curso de Engenharia Eletrônica e de Computação
-da Universidade Federal do Rio de Janeiro
+Engenharia Eletrônica e de Computação
+==
 
-por Dhiana Deva
+Universidade Federal do Rio de Janeiro
+--
+
+Dhiana Deva
